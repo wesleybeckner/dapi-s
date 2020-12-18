@@ -950,7 +950,7 @@ function bundleDeckle() {
   xhttp.onreadystatechange = function () {
     $("#loading").removeClass("hidden");
   };
-  xhttp.open("POST", "http://localhost:5000/front-api-search", true);
+  xhttp.open("POST", "https://dapi.azurewebsites.net/front-api-search", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(JSON.stringify(deckle_bundle));
   xhttp.onreadystatechange = function () {
