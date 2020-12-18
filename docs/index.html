@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - DAPI-S</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Material+Icons'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@2.3.21/dist/vuetify.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'rel='stylesheet'type='text/css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app" class="container">
+  <v-app id="inspire">
+    
+    <div class="form">
+      <h4>To Deckle</h4>
+    <br>
+      <button onclick="testFill()" class="form">AUTO FILL</button>
+    <br>
+      <br>
+
+    <span>Widths:</span>
+    <div class="flex-container">
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width1"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width2"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width3"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width4"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width5"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Width" id="width6"></div>
+    </div>
+
+    <span>Rolls:</span>
+    <div class="flex-container">
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll1"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll2"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll3"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll4"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll5"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll6"></div>
+    </div>
+
+    <span>Neck in:</span>
+    <div class="flex-container">
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck1"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck2"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck3"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck4"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck5"></div>
+      <div><input type="text" class="u-full-width form" placeholder="Neck in" id="neck6"></div>
+    </div>
+    <div class="row">
+    </div>
+      
+    <br>
+      <h4>Deckle Settings</h4>
+ <br>
+
+    <span>Usable Width (mm)</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="4160" id="usable_width">
+    <br />
+    <span>Put Up (m)</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="17000" id="put_up">
+    <span>Doffs Per Jumbo</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="6" id="doffs_per_jumbo">
+    <br />
+    <span>Max. Unique Widths Per Layout</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="2, 3" id="max_widths">
+    <br />
+    <span>Max. Unique Layouts</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="3, 4" id="max_layouts">
+    <br />
+    <span>Production Targets</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="0.95, 1" id="production_targets">
+    <br />
+    <span>Edge Allowance (mm per side)</span>
+    <br />
+    <input type="text" class="u-full-width form" lazy placeholder="0, 1" id="edge_allowance">
+    <br />
+      <br>
+    <button onclick="bundleDeckle()" class="form">RUN</button>
+    
+      
+    </div>
+    <div id="loading" class="vue-load hidden">
+      <loading v-if="loading"></loading>
+      <p id="est_time_p">est. time remaining: </p>
+    </div>
+    <br>
+  <h4>Results</h4>
+    <br>
+    <v-data-table :headers="myHeaders" :items="myItems" :single-expand="singleExpand" :expanded.sync="expanded" item-key="loss" show-expand class="elevation-1">
+      <template v-slot:top>
+        <v-toolbar flat>
+          <v-toolbar-title>DAPI-S</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-switch v-model="singleExpand" label="Single expand" class="mt-2"></v-switch>
+        </v-toolbar>
+      </template>
+      <template v-slot:expanded-item="{ headers, item }">
+        <td :colspan="headers.length">
+          <v-data-table :headers="summaryHeaders" :items="item.summary" hide-default-footer style="margin: 20px;">
+            <template slot="items" slot-scope="props" :items="item.summary">
+        <td class="text-xs-right">{{ props.item.loss }}</td>
+        <td class="text-xs-right">{{ props.item.jumbos }}</td>
+        <td class="text-xs-right">{{ props.item.layout }}</td>
+      </template>
+    </v-data-table>
+    </td>
+    </template>
+    <template v-slot:body.append>
+      <tr>
+        <td>
+          <v-text-field v-model="loss" type="number" label="Less than"></v-text-field>
+        </td>
+        <td>
+          <v-text-field v-model="jumbos" type="number" label="Less than"></v-text-field>
+        </td>
+        <td>
+          <v-text-field v-model="combinations" type="number" label="Less than"></v-text-field>
+        </td>
+        <td>
+          <v-text-field v-model="patterns" type="number" label="Less than"></v-text-field>
+        </td>
+        <td>
+          <v-text-field v-model="target" type="number" label="greater than"></v-text-field>
+        </td>
+        <td>
+          <v-text-field v-model="edge" type="number" label="Less than"></v-text-field>
+        </td>
+      </tr>
+    </template>
+    </v-data-table>
+  </v-app>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.3.21/dist/vuetify.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
