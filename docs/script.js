@@ -121,7 +121,7 @@ function bundleDeckle() {
   xhttp.onreadystatechange = function () {
     $("#loading").removeClass("hidden");
   };
-  xhttp.open("POST", "http://apiplan.mfganalytic.com/front-api-search", true);
+  xhttp.open("POST", "https://apiplan.mfganalytic.com/front-api-search", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(JSON.stringify(deckle_bundle));
   xhttp.onreadystatechange = function () {
