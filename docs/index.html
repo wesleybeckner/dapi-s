@@ -15,7 +15,7 @@
 <!-- partial:index.partial.html -->
 <div id="app" class="container">
   <v-app id="inspire">
-    
+
     <div class="form">
       <h4>To Deckle</h4>
     <br>
@@ -54,7 +54,7 @@
     </div>
     <div class="row">
     </div>
-      
+
     <br>
       <h4>Deckle Settings</h4>
  <br>
@@ -88,8 +88,8 @@
     <br />
       <br>
     <button onclick="bundleDeckle()" class="form">RUN</button>
-    
-      
+
+
     </div>
     <div id="loading" class="vue-load hidden">
       <loading v-if="loading"></loading>
@@ -98,7 +98,7 @@
     <br>
   <h4>Results</h4>
     <br>
-    <v-data-table :headers="myHeaders" :items="myItems" :single-expand="singleExpand" :expanded.sync="expanded" item-key="loss" show-expand class="elevation-1">
+    <v-data-table :headers="getHeaders(myItems)" :items="myItems" :single-expand="singleExpand" :expanded.sync="expanded" item-key="loss rank" show-expand class="elevation-1" ref="myTable" :key="myItems">
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>DAPI-S</v-toolbar-title>

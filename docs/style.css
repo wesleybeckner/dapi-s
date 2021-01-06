@@ -104,18 +104,18 @@ body {
   }
 
   .column,
-  .columns {
+.columns {
     margin-left: 4%;
   }
 
   .column:first-child,
-  .columns:first-child {
+.columns:first-child {
     margin-left: 0;
   }
 
   .one.column,
-  .one.columns {
-    width: 4.66666666667%;
+.one.columns {
+    width: 4.6666666667%;
   }
 
   .two.columns {
@@ -176,80 +176,80 @@ body {
   }
 
   .offset-by-one.column,
-  .offset-by-one.columns {
-    margin-left: 8.66666666667%;
+.offset-by-one.columns {
+    margin-left: 8.6666666667%;
   }
 
   .offset-by-two.column,
-  .offset-by-two.columns {
+.offset-by-two.columns {
     margin-left: 17.3333333333%;
   }
 
   .offset-by-three.column,
-  .offset-by-three.columns {
+.offset-by-three.columns {
     margin-left: 26%;
   }
 
   .offset-by-four.column,
-  .offset-by-four.columns {
+.offset-by-four.columns {
     margin-left: 34.6666666667%;
   }
 
   .offset-by-five.column,
-  .offset-by-five.columns {
+.offset-by-five.columns {
     margin-left: 43.3333333333%;
   }
 
   .offset-by-six.column,
-  .offset-by-six.columns {
+.offset-by-six.columns {
     margin-left: 52%;
   }
 
   .offset-by-seven.column,
-  .offset-by-seven.columns {
+.offset-by-seven.columns {
     margin-left: 60.6666666667%;
   }
 
   .offset-by-eight.column,
-  .offset-by-eight.columns {
+.offset-by-eight.columns {
     margin-left: 69.3333333333%;
   }
 
   .offset-by-nine.column,
-  .offset-by-nine.columns {
+.offset-by-nine.columns {
     margin-left: 78%;
   }
 
   .offset-by-ten.column,
-  .offset-by-ten.columns {
+.offset-by-ten.columns {
     margin-left: 86.6666666667%;
   }
 
   .offset-by-eleven.column,
-  .offset-by-eleven.columns {
+.offset-by-eleven.columns {
     margin-left: 95.3333333333%;
   }
 
   .offset-by-one-third.column,
-  .offset-by-one-third.columns {
+.offset-by-one-third.columns {
     margin-left: 34.6666666667%;
   }
 
   .offset-by-two-thirds.column,
-  .offset-by-two-thirds.columns {
+.offset-by-two-thirds.columns {
     margin-left: 69.3333333333%;
   }
 
   .offset-by-one-half.column,
-  .offset-by-one-half.columns {
+.offset-by-one-half.columns {
     margin-left: 52%;
   }
 }
 .form.button,
 button.form,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type=button],
+input[type=reset],
+input[type=submit] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -273,12 +273,12 @@ input[type="submit"] {
 .button:hover,
 button:focus,
 button:hover,
-input[type="button"]:focus,
-input[type="button"]:hover,
-input[type="reset"]:focus,
-input[type="reset"]:hover,
-input[type="submit"]:focus,
-input[type="submit"]:hover {
+input[type=button]:focus,
+input[type=button]:hover,
+input[type=reset]:focus,
+input[type=reset]:hover,
+input[type=submit]:focus,
+input[type=submit]:hover {
   color: #333;
   border-color: #888;
   outline: 0;
@@ -286,9 +286,9 @@ input[type="submit"]:hover {
 
 .button.button-primary,
 button.button-primary,
-input[type="button"].button-primary,
-input[type="reset"].button-primary,
-input[type="submit"].button-primary {
+input[type=button].button-primary,
+input[type=reset].button-primary,
+input[type=submit].button-primary {
   color: #fff;
   background-color: #33c3f0;
   border-color: #33c3f0;
@@ -298,24 +298,24 @@ input[type="submit"].button-primary {
 .button.button-primary:hover,
 button.button-primary:focus,
 button.button-primary:hover,
-input[type="button"].button-primary:focus,
-input[type="button"].button-primary:hover,
-input[type="reset"].button-primary:focus,
-input[type="reset"].button-primary:hover,
-input[type="submit"].button-primary:focus,
-input[type="submit"].button-primary:hover {
+input[type=button].button-primary:focus,
+input[type=button].button-primary:hover,
+input[type=reset].button-primary:focus,
+input[type=reset].button-primary:hover,
+input[type=submit].button-primary:focus,
+input[type=submit].button-primary:hover {
   color: #fff;
   background-color: #1eaedb;
   border-color: #1eaedb;
 }
 
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
 select,
 textarea {
   height: 38px;
@@ -327,13 +327,13 @@ textarea {
   box-sizing: border-box;
 }
 
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -346,13 +346,13 @@ textarea {
   padding-bottom: 6px;
 }
 
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="url"]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=url]:focus,
 select:focus,
 textarea:focus {
   border: 1px solid #33c3f0;
