@@ -33,9 +33,14 @@
       <div><input type="text" class="u-full-width form" placeholder="Width" id="width6"></div>
     </div>
 
-    <span>Rolls:</span>
+    <span>Rolls or Linear Meters (LM):</span>
+    <br>
+    <input type="radio" id="rolls" value="Rolls" v-model="lengthMetric">
+    <label for="rolls">Rolls</label>
+    <input type="radio" id="lm" value="LM" v-model="lengthMetric">
+    <label for="lm">LM</label>
     <div class="flex-container">
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll1"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll1"></div>
       <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll2"></div>
       <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll3"></div>
       <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll4"></div>

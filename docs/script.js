@@ -103,12 +103,27 @@ function testFill() {
   }
 }
 function bundleDeckle() {
+  // create the deckle bucket to send to DAPI
   for (i = 0; i < Object.keys(deckle_bundle).length; i++) {
 
     deckle_bundle[Object.keys(deckle_bundle)[i]] = document.getElementById(
     Object.keys(deckle_bundle)[i]).
     value;
   }
+
+  // handle switch from LM to ROLLS
+  var rolls = ['roll1', 'roll2', 'roll3', 'roll4', 'roll5', 'roll6']
+  if (resultsTable.lengthMetric == 'LM') {
+
+    rolls.forEach(function (roll, index) {
+      console.log(roll, index);
+      if (deckle_bundle[roll] != "") {
+        deckle_bundle[roll] = Math.ceil(deckle_bundle[roll]/deckle_bundle['put_up']).toString();
+      }
+    });
+  }
+
+  // count down time parameters
   let var1 = deckle_bundle['max_widths'].split(", ").length;
   let var2 = deckle_bundle['max_layouts'].split(", ").length;
   let var3 = deckle_bundle['production_targets'].split(", ").length;
@@ -146,9 +161,11 @@ new Vue({
 
 var resultsTable = new Vue({
   el: "#app",
+
   vuetify: new Vuetify(),
   data() {
     return {
+      lengthMetric: "Rolls",
       jumbos: "",
       loss: "",
       combinations: "",
