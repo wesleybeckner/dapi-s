@@ -1,6 +1,15 @@
 Vue.component('loading', {
   template: '<div class="vue-load"><div class="block-loader"><span class="block"></span><span class="block"></span><span class="block"></span><span class="block"></span></div></div>' });
 
+var dropitems = {
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5'
+}
+
+const options = [{country: 'Canada', code: 'CA'},];
 
 var results = [
     {
@@ -96,7 +105,7 @@ var deckle_bundle = {
 
 function testFill() {
   for (i = 0; i < Object.keys(deckle_bundle).length; i++) {
-    console.log(Object.keys(deckle_bundle)[i]);
+    // console.log(Object.keys(deckle_bundle)[i]);
     document.getElementById(
     Object.keys(deckle_bundle)[i]).
     value = Object.values(deckle_bundle)[i];
@@ -116,7 +125,7 @@ function bundleDeckle() {
   if (resultsTable.lengthMetric == 'LM') {
 
     rolls.forEach(function (roll, index) {
-      console.log(roll, index);
+      // console.log(roll, index);
       if (deckle_bundle[roll] != "") {
         deckle_bundle[roll] = Math.ceil(deckle_bundle[roll]/deckle_bundle['put_up']).toString();
       }
@@ -165,6 +174,7 @@ var resultsTable = new Vue({
   vuetify: new Vuetify(),
   data() {
     return {
+      options: [{country: 'Canada', code: 'CA'},],
       lengthMetric: "Rolls",
       jumbos: "",
       loss: "",

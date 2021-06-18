@@ -41,11 +41,11 @@
     <label for="lm">LM</label>
     <div class="flex-container">
       <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll1"></div>
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll2"></div>
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll3"></div>
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll4"></div>
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll5"></div>
-      <div><input type="text" class="u-full-width form" placeholder="Rolls" id="roll6"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll2"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll3"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll4"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll5"></div>
+      <div><input type="text" class="u-full-width form" v-bind:placeholder="lengthMetric" id="roll6"></div>
     </div>
 
     <span>Neck in:</span>
@@ -72,6 +72,10 @@
     <br />
     <input type="text" class="u-full-width form" lazy placeholder="17000" id="put_up">
     <span>Doffs Per Jumbo</span>
+
+    <!-- <v-select :options="['one', 'two']"></v-select> -->
+    <v-select multiple v-model="lengthMetric" :options="['Canada','United States']" />
+
     <br />
     <input type="text" class="u-full-width form" lazy placeholder="6" id="doffs_per_jumbo">
     <br />
