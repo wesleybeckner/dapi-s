@@ -161,6 +161,9 @@ function bundleDeckle() {
     }
   };
 }
+
+
+
 new Vue({
   el: "#loading",
   data: {
@@ -171,10 +174,10 @@ new Vue({
 var resultsTable = new Vue({
   el: "#app",
 
+
   vuetify: new Vuetify(),
   data() {
     return {
-      options: [{country: 'Canada', code: 'CA'},],
       lengthMetric: "Rolls",
       jumbos: "",
       loss: "",

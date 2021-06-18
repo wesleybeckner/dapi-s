@@ -72,9 +72,9 @@
     <br />
     <input type="text" class="u-full-width form" lazy placeholder="17000" id="put_up">
     <span>Doffs Per Jumbo</span>
-
-    <!-- <v-select :options="['one', 'two']"></v-select> -->
-    <v-select multiple v-model="lengthMetric" :options="['Canada','United States']" />
+<!--
+    <v-select :options="['one', 'two']"></v-select>
+    <v-select multiple v-model="lengthMetric" :options="['Canada','United States']" /> -->
 
     <br />
     <input type="text" class="u-full-width form" lazy placeholder="6" id="doffs_per_jumbo">
@@ -155,7 +155,14 @@
   <script src='https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/vuetify@2.3.21/dist/vuetify.min.js'></script><script  src="./script.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@2.3.21/dist/vuetify.min.js'></script>
+<script  src="./script.js"></script>
+<!-- use the latest vue-select release -->
+<script src="https://unpkg.com/vue-select@latest"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+<script>
+Vue.component('v-select', VueSelect.VueSelect);
+</script>
 
 </body>
 </html>
